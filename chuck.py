@@ -8,6 +8,7 @@ topic = input('Enter a topic for Chuck: ')
 request_url = f'{BASE_URL}?query={topic}'
 response = requests.get(request_url)
 
+
 if response.status_code == 200:
     try:
         data = response.json()

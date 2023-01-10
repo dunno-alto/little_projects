@@ -1,5 +1,4 @@
 import requests
-from datetime import datetime
 
 API_KEY = 'c30bda76c0157443467d6476d3bba3f1'
 BASE_URL = 'https://api.openweathermap.org/data/2.5/'
@@ -14,11 +13,11 @@ def weather():
     if response.status_code == 200:
         data = response.json()
         weatherdata = (data['weather'][0]['description'])
-        weather = str.capitalize(weatherdata)
+        weathers = str.capitalize(weatherdata)
         temp = data['main']['temp']
         fahrenheit = int((temp - 273) * 1.8 + 32)
         wind = int(data['wind']['speed'])
-        print(f'Weather: {weather}')
+        print(f'Weather: {weathers}')
         print(f'Temp: {fahrenheit}F')
         print(f'Wind: {wind}mph')
     else:
@@ -38,8 +37,8 @@ def forecast():
             temp = data['list'][c]['main']['temp']
             fahrenheit = int((temp - 273) * 1.8 + 32)
             weatherdata = (data['list'][c]['weather'][0]['description'])
-            weather = str.capitalize(weatherdata)
-            print(f'{day} Temp: {fahrenheit} \nWeather: {weather}')
+            weathers = str.capitalize(weatherdata)
+            print(f'{day} Temp: {fahrenheit} \nWeather: {weathers}')
 
     else:
         print('An error occurred.')
